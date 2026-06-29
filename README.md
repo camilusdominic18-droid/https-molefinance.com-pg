@@ -33,3 +33,4 @@ MoleFinance-DummyDB/
   </script>
 </body>
 </html>
+https://<your-username>.github.io/MoleFinance-DummyDB/database-demo.html
