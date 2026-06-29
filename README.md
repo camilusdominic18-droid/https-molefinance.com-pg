@@ -6,3 +6,30 @@ MoleFinance-DummyDB/
 │    └── repayments.csv
 ├── database-demo.html
 └── README.md   (optional placeholder)
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mole Finance Dummy Database</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+</head>
+<body style="font-family:Montserrat, sans-serif; background:#0A1F44; color:white;">
+  <h1 style="color:#D4AF37;">Mole Finance Dummy Database Demo</h1>
+  <div id="output"></div>
+
+  <script>
+    function loadCSV(file, label) {
+      Papa.parse(file, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          document.getElementById("output").innerHTML += 
+            `<h2 style="color:#D4AF37;">${label}</h2><pre>${JSON.stringify(results.data, null, 2)}</pre>`;
+        }
+      });
+    }
+    loadCSV("data/clients.csv", "Clients");
+    loadCSV("data/loans.csv", "Loans");
+    loadCSV("data/repayments.csv", "Repayments");
+  </script>
+</body>
+</html>
